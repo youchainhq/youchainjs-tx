@@ -1,0 +1,95 @@
+{
+  "name": "youchainjs-tx",
+  "version": "1.0.10",
+  "description": "A simple module for creating, manipulating and signing YOUChain transactions",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "./ts_build.sh",
+    "prepublishOnly": "npm run test && npm run build",
+    "docs:build": "typedoc --out docs --mode file --readme none --theme markdown --mdEngine github --excludeNotExported src",
+    "test": "",
+    "test:node": "ts-node node_modules/tape/bin/tape ./test/index.ts",
+    "test:browser:build": "tsc && cp ./test/*.json test-build/test/",
+    "test:browser": "npm run test:browser:build && karma start karma.conf.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youchainhq/youchain.js.git"
+  },
+  "homepage": "https://github.com/youchainhq/youchain.js",
+  "bugs": {
+    "url": "https://github.com/youchainhq/youchain.js/issues"
+  },
+  "keywords": [
+    "youchain",
+    "transactions"
+  ],
+  "author": "YOUChain Foundation",
+  "license": "LGPL-3.0",
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "babel-polyfill": "^6.26.0",
+    "bip66": "^1.1.5",
+    "brorand": "^1.1.0",
+    "browserify-aes": "^1.2.0",
+    "buffer-xor": "^1.0.3",
+    "callsite": "^1.0.0",
+    "create-hmac": "^1.1.7",
+    "drbg.js": "^1.0.1",
+    "elliptic": "^6.5.1",
+    "ethereumjs-util": "^6.1.0",
+    "evp_bytestokey": "^1.0.3",
+    "fast-deep-equal": "^2.0.1",
+    "fast-json-stable-stringify": "^2.0.0",
+    "file-uri-to-path": "^1.0.0",
+    "har-schema": "^2.0.0",
+    "hash.js": "^1.1.7",
+    "hmac-drbg": "^1.0.1",
+    "json-schema-traverse": "^0.4.1",
+    "lodash.sortby": "^4.7.0",
+    "minimalistic-crypto-utils": "^1.0.1",
+    "nan": "^2.14.0",
+    "p-try": "^2.2.0",
+    "spdx-exceptions": "^2.2.0",
+    "spdx-license-ids": "^3.0.5",
+    "uri-js": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^4.11.5",
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^11.15.0",
+    "@types/tape": "^4.2.33",
+    "browserify": "^16.5.0",
+    "contributor": "^0.1.25",
+    "coveralls": "^2.13.3",
+    "dtslint": "^0.5.9",
+    "ethereumjs-testing": "^1.1.0",
+    "husky": "^2.7.0",
+    "istanbul": "^0.4.5",
+    "karma": "^4.4.1",
+    "karma-browserify": "^6.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-detect-browsers": "^2.3.3",
+    "karma-firefox-launcher": "^1.2.0",
+    "karma-tap": "^4.1.4",
+    "minimist": "^1.2.0",
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2",
+    "tape": "^4.11.0",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-markdown": "^1.2.1",
+    "typescript": "^3.6.4",
+    "typestrict": "^1.0.2"
+  }
+}
